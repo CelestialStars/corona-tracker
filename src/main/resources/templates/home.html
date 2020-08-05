@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="container">
+    <head>
+        <title>Corona Virus Application Tracker</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+              integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+              crossorigin="anonymous">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+
+    <body>
+    <div class="card">
+        <div class="card-header">
+            STAY HEALTHY!
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" >Total Confirmed Cases Till Now</h5>
+            <p class="card-text" th:text="${totalConfirmedCases}"></p>
+            <a href="https://www.who.int/" target="_blank" class="btn btn-primary">Useful Information</a></div>
+    </div>
+
+    <h1>Latest Reported Confirmed Corona Cases Around the World!</h1>
+
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th>Country</th>
+            <th>State</th>
+            <th>Latest Total Confirmed Cases</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.latestTotalConfirmedCases}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    </body>
+</div>
+
+</html>
